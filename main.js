@@ -7,12 +7,6 @@ const init = async () => {
   renderHeader();
   await renderImages();
   renderFooter();
-
-  console.log('Before event listener registration');
-
-  console.log(document.body.querySelector(".button-refresh-home"));
-  console.log(document.body.querySelector(".search-bar"));
-
   document.body.querySelector(".button-refresh-home").addEventListener('click',refreshButton);
   document.body.querySelector(".search-bar").addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
@@ -20,8 +14,6 @@ const init = async () => {
         query(document.getElementById("query-input").value);
     }
   });
-
-  console.log('After event listener registration');
 }
 
 init();
