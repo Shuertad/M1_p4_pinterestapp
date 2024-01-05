@@ -21,9 +21,8 @@ const loadImage = async (url) => {
   }
 }
 
-const response = await loadImage(apiUrl);
-
-export const renderImages = () => {
+export const renderImages = async () => {
+  const response = await loadImage(apiUrl);
   console.log(response)
   const galleryContainer = `<div class="grid-container gallery"></div>`;
   const appContainer = document.getElementById('app');
