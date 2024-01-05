@@ -1,4 +1,4 @@
-import { Card } from '/src/components/Card/Card'
+import { Card } from '/src/Card/Card'
 
 const apiUrlRoot = 'https://api.unsplash.com' //'https://api.unsplash.com/photos/';
 const key = import.meta.env.VITE_KEY;
@@ -21,18 +21,32 @@ const loadImage = async (url) => {
   }
 }
 
+//const response = await loadImage(apiUrl);
+
 export const renderImages = async () => {
-  const response = await loadImage(apiUrl);
-  console.log(response)
-  const galleryContainer = `<div class="grid-container gallery"></div>`;
-  const appContainer = document.getElementById('app');
-  appContainer.innerHTML += galleryContainer;
-  for (const image of response) {
-    const cardImage = Card(image.urls.regular,i,image.links.html);
-    document.body.querySelector(".grid-container.gallery").innerHTML += cardImage;
-    i++;
+
+  try {
+    const images = await loadImage(apiUrl);
+
+    if (!Array.isArray(images)) {
+      console.error('API did not return an array of images.');
+      return;
+    }
+
+    const galleryContainer = document.createElement('div');
+    galleryContainer.classList.add('grid-container', 'gallery');
+
+    for (let i = 0; i < images.length; i++) {
+      const cardImage = Card(images[i].urls.regular, i, images[i].links.html);
+      galleryContainer.innerHTML += cardImage;
+    }
+
+    const appContainer = document.getElementById('app');
+    appContainer.appendChild(galleryContainer);
+  } catch (error) {
+    console.error('Error loading images:', error);
   }
-}
+};
 
 export const refreshButton = async () => {
     pageCount++

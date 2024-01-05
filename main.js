@@ -1,11 +1,16 @@
 import './style.css'
-import { renderHeader } from './src/components/Header/Header'
-import { renderFooter } from './src/components/Footer/Footer'
-import { renderImages, refreshButton, query } from './src/components/ImageImports/ImageImports'
+import { renderHeader } from './src/Header/Header'
+import { renderFooter } from './src/Footer/Footer'
+import { renderImages, refreshButton, query } from './src/ImageImports/ImageImports'
 
-renderHeader();
-renderImages();
-renderFooter();
+const init = async () => {
+  renderHeader();
+  await renderImages();
+  renderFooter();
+}
+
+init()
+
 document.body.querySelector(".button-refresh-home").addEventListener('click',refreshButton);
 document.body.querySelector(".search-bar").addEventListener('keydown', function(event) {
   if (event.key === 'Enter') {

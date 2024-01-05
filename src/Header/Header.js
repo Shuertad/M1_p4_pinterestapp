@@ -1,7 +1,7 @@
 import './Header.css';
-import { Button } from '/src/components/Button/Button'
-import { SearchBar } from '/src/components/SearchBar/SearchBar'
-import { Logo } from '/src/components/Logo/Logo'
+import { Button } from '/src/Button/Button'
+import { SearchBar } from '/src/SearchBar/SearchBar'
+import { Logo } from '/src/Logo/Logo'
 
 const tagTemplateHeader = `
     ${Logo()}

@@ -1,6 +1,6 @@
 import './Logo.css'
 export const unsplashUrl = 'https://unsplash.com/es'
-export const unsplashLogo = './public/Resources/Unsplash-logo.png'
+export const unsplashLogo = '/Unsplash-logo.png'
 
 export const Logo = () => { 
     const logoTagTemplate = `<div class="logo-container">
