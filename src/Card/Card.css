@@ -58,8 +58,28 @@
   aspect-ratio: 2/1;
   } 
   }
+
+  @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+    .gallery > div:nth-child(1),
+    div:nth-child(5),
+    div:nth-child(7),
+    
+    div:nth-child(13),
+    div:nth-child(19),
+    div:nth-child(21) {
+  grid-row: span 2;
+  }
   
-  @media only screen and (min-width: 1025px) {
+  .gallery > div:nth-child(6),
+  div:nth-child(12),
+  div:nth-child(25),
+  div:nth-child(27) {
+  grid-column: span 2;
+  aspect-ratio: 2/1;
+  } 
+  }
+  
+  @media only screen and (min-width: 1441px) {
     .gallery > div:nth-child(2),
     div:nth-child(10),
     div:nth-child(11),
