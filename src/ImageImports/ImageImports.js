@@ -60,6 +60,9 @@ export const refreshButton = async () => {
         document.body.querySelector(".grid-container.gallery").innerHTML += cardImage;
         i++;
       }
+    const searchInput = document.getElementById("query-input");
+    // Clear the input value
+    searchInput.value = "";
     console.log('Refresh triggered')
 }
 
