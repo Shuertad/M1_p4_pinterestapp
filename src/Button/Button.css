@@ -4,6 +4,7 @@
     height: 40px;
     border: none;
     width: 80px;
+    color: var(--primary-color);
 }
 
 .button-refresh-home:hover {
